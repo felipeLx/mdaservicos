@@ -351,6 +351,15 @@
       color: var(--navy);
       font-size: 0.9rem;
     }
+    .form-error {
+      display: none;
+      background: rgba(220,53,53,0.08);
+      border: 1px solid rgba(220,53,53,0.4);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      color: #8b1a1a;
+      font-size: 0.9rem;
+    }
 
     /* ─── FOOTER ─── */
     footer {
@@ -586,27 +595,34 @@
         <div class="info-icon">📧</div>
         <div>
           <strong>E-mail</strong>
-          <span>mdaservicosprofissionais@gmail.com</span>
+          <span><a href="mailto:contato@mdaconsultoria.com.br">contato@mdaconsultoria.com.br</a></span>
         </div>
       </div>
       <div class="info-item">
         <div class="info-icon">📱</div>
         <div>
           <strong>WhatsApp</strong>
-          <span>(22) 99253-3228</span>
+          <span><a href="https://wa.me/5522992533228" target="_blank">(22) 99253-3228</a></span>
         </div>
       </div>
     </div>
 
     <div class="reveal">
       <!--
-        INSTRUÇÕES PARA ATIVAR O FORMULÁRIO:
-        1. Acesse https://formspree.io e crie uma conta gratuita
-        2. Crie um novo formulário e copie o endpoint gerado
-        3. Substitua YOUR_FORM_ID abaixo pelo ID do seu formulário
-           Exemplo: action="https://formspree.io/f/xrgjwkqv"
+        INSTRUÇÕES PARA ATIVAR O FORMULÁRIO (GRÁTIS):
+        1. Acesse https://web3forms.com
+        2. Digite seu e-mail e clique em "Get your Access Key" — sem cadastro, sem cartão
+        3. Você receberá a chave no e-mail. Cole ela abaixo substituindo YOUR_ACCESS_KEY
       -->
-      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form id="contact-form">
+        <!-- Web3Forms: chave de acesso (obrigatório) -->
+        <input type="hidden" name="access_key" value="4f5a8676-c65c-43ef-9d6f-2fd0a4c6d5e7" />
+        <!-- Honeypot anti-spam (não remova) -->
+        <input type="checkbox" name="botcheck" style="display:none;" />
+        <!-- Assunto do e-mail que você vai receber -->
+        <input type="hidden" name="subject" value="Novo contato via site MDA Consultoria" />
+        <input type="hidden" name="from_name" value="MDA Consultoria Website" />
+
         <div class="form-row">
           <div>
             <label for="nome">Nome</label>
@@ -644,6 +660,7 @@
         <div class="form-success" id="form-success">
           ✅ Mensagem enviada com sucesso! Entraremos em contato em breve.
         </div>
+        <div class="form-error" id="form-error"></div>
         <button type="submit" class="btn-submit">Enviar Mensagem</button>
       </form>
     </div>
@@ -656,7 +673,7 @@
   <p style="margin-top:0.5rem; font-size:0.75rem;">Desenvolvido com ♥ para as empresas e profissionais da nossa região</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── Carousel ──────────────────────────────────────────────────
   const slides = document.querySelectorAll('.slide');
   const dots   = document.querySelectorAll('.dot');
@@ -685,25 +702,53 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ── Form submission ────────────────────────────────────────────
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', async (e) => {
-    const action = form.getAttribute('action');
-    if (action.includes('YOUR_FORM_ID')) return; // placeholder, let browser handle
+  // ── Form submission via Web3Forms ─────────────────────────────
+  const form      = document.getElementById('contact-form');
+  const success   = document.getElementById('form-success');
+  const errorEl   = document.getElementById('form-error');
+  const submitBtn = form.querySelector('.btn-submit');
 
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const key = form.querySelector('[name="access_key"]').value;
+    if (key === 'YOUR_ACCESS_KEY') {
+      errorEl.textContent = '⚠ Configure sua chave Web3Forms antes de enviar.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    submitBtn.disabled    = true;
+    submitBtn.textContent = 'Enviando…';
+    success.style.display = 'none';
+    errorEl.style.display = 'none';
+
     const data = new FormData(form);
+    const json = Object.fromEntries(data.entries());
+
     try {
-      const res = await fetch(action, {
-        method: 'POST', body: data,
-        headers: { 'Accept': 'application/json' }
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(json)
       });
-      if (res.ok) {
+      const body = await res.json();
+
+      if (res.ok && body.success) {
         form.reset();
-        document.getElementById('form-success').style.display = 'block';
-        setTimeout(() => document.getElementById('form-success').style.display = 'none', 5000);
+        success.style.display = 'block';
+        setTimeout(() => success.style.display = 'none', 6000);
+      } else {
+        errorEl.textContent   = body.message || 'Erro ao enviar. Tente novamente.';
+        errorEl.style.display = 'block';
       }
-    } catch (err) { console.error(err); }
+    } catch {
+      errorEl.textContent   = 'Falha de conexão. Verifique sua internet e tente novamente.';
+      errorEl.style.display = 'block';
+    } finally {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = 'Enviar Mensagem';
+    }
   });
 </script>
 </body>
