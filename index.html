@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MDA Consultoria | Recursos Humanos – Regiões dos Lagos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0d2035;
+      --navy2:  #16304d;
+      --gold:   #c8a96e;
+      --gold2:  #e8cfa0;
+      --cream:  #f7f2eb;
+      --white:  #ffffff;
+      --text:   #2c2c2c;
+      --muted:  #6b7280;
+      --radius: 4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5vw;
+      background: rgba(13,32,53,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(200,169,110,0.25);
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+    .logo span { color: var(--white); }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    nav ul a:hover { color: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(160deg, rgba(13,32,53,0.88) 0%, rgba(13,32,53,0.60) 60%, rgba(13,32,53,0.85) 100%),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 8rem 5vw 5rem;
+    }
+    .hero-inner { max-width: 780px; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(200,169,110,0.5);
+      padding: 0.35rem 1.2rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s both;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s 0.15s both;
+    }
+    .hero-title em { font-style: italic; color: var(--gold2); }
+    .hero-sub {
+      font-size: 1rem; line-height: 1.8;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px; margin: 0 auto 3rem;
+      animation: fadeUp 0.8s 0.3s both;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      border-radius: var(--radius);
+      transition: background 0.25s, transform 0.2s;
+      animation: fadeUp 0.8s 0.45s both;
+    }
+    .btn:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 6rem 5vw; }
+    .section-label {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400; line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; }
+    .divider {
+      width: 48px; height: 2px;
+      background: var(--gold);
+      margin: 1.5rem 0;
+    }
+
+    /* ─── SOBRE ─── */
+    #sobre { background: var(--white); }
+    .sobre-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .sobre-text p {
+      line-height: 1.9; color: #4a4a4a; font-size: 0.97rem;
+      margin-bottom: 1rem;
+    }
+    .sobre-img {
+      position: relative;
+    }
+    .sobre-img img {
+      width: 100%; border-radius: var(--radius);
+      display: block;
+      box-shadow: 20px 20px 0 var(--cream), 22px 22px 0 var(--gold);
+    }
+    .sobre-badge {
+      position: absolute; bottom: -1.5rem; left: -1.5rem;
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(13,32,53,0.3);
+    }
+    .sobre-badge strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 600;
+      color: var(--gold);
+    }
+    .sobre-badge span { font-size: 0.75rem; letter-spacing: 0.1em; opacity: 0.8; }
+
+    /* ─── SERVIÇOS ─── */
+    #servicos { background: var(--cream); }
+    .servicos-wrap { max-width: 1100px; margin: 0 auto; }
+    .servicos-header { text-align: center; margin-bottom: 3.5rem; }
+    .servicos-header .divider { margin: 1.5rem auto; }
+    .cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: var(--radius);
+      padding: 2.4rem 2rem;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .card:hover {
+      box-shadow: 0 16px 48px rgba(13,32,53,0.1);
+      transform: translateY(-4px);
+    }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(200,169,110,0.12);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 0.8rem;
+    }
+    .card p { font-size: 0.9rem; line-height: 1.75; color: var(--muted); }
+
+    /* ─── DEPOIMENTOS ─── */
+    #depoimentos { background: var(--navy); overflow: hidden; }
+    #depoimentos .section-title,
+    #depoimentos .section-label { color: var(--gold2); }
+    #depoimentos .section-title { color: var(--white); }
+    .dep-header { text-align: center; margin-bottom: 3rem; }
+    .dep-header .divider { margin: 1.5rem auto; }
+    .carousel { position: relative; max-width: 800px; margin: 0 auto; }
+    .slides { overflow: hidden; }
+    .slide {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    .slide.active { display: block; }
+    .dep-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: var(--radius);
+      padding: 3rem 3.5rem;
+      text-align: center;
+    }
+    .dep-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-style: italic;
+      color: rgba(255,255,255,0.9); line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .dep-quote::before { content: '\201C'; color: var(--gold); font-size: 3rem; line-height: 0; vertical-align: -0.7rem; margin-right: 0.3rem; }
+    .dep-author strong { display: block; color: var(--gold); font-size: 0.95rem; letter-spacing: 0.05em; }
+    .dep-author span { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
+    .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .carousel-controls {
+      display: flex; justify-content: center; align-items: center;
+      gap: 1rem; margin-top: 2rem;
+    }
+    .carousel-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid rgba(200,169,110,0.4);
+      background: transparent; color: var(--gold);
+      font-size: 1.1rem; cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .carousel-btn:hover { background: rgba(200,169,110,0.15); border-color: var(--gold); }
+    .dots { display: flex; gap: 0.5rem; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(200,169,110,0.3); cursor: pointer;
+      transition: background 0.2s;
+    }
+    .dot.active { background: var(--gold); }
+
+    /* ─── EQUIPE ─── */
+    #equipe { background: var(--white); }
+    .equipe-wrap { max-width: 1100px; margin: 0 auto; }
+    .equipe-header { text-align: center; margin-bottom: 3.5rem; }
+    .equipe-header .divider { margin: 1.5rem auto; }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem; max-width: 700px; margin: 0 auto;
+    }
+    .member {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: var(--radius);
+      transition: box-shadow 0.3s;
+    }
+    .member:hover { box-shadow: 0 12px 40px rgba(13,32,53,0.1); }
+    .avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 600;
+      color: var(--gold);
+      border: 3px solid var(--gold);
+    }
+    .member h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; color: var(--navy); margin-bottom: 0.3rem;
+    }
+    .member .role {
+      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .member p {
+      margin-top: 0.8rem;
+      font-size: 0.88rem; line-height: 1.7; color: var(--muted);
+    }
+
+    /* ─── CONTATO ─── */
+    #contato { background: var(--cream); }
+    .contato-wrap {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.3fr;
+      gap: 5rem; align-items: start;
+    }
+    .contato-info p { line-height: 1.9; color: #4a4a4a; font-size: 0.97rem; margin-bottom: 2rem; }
+    .info-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+    .info-icon {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--navy); color: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; flex-shrink: 0;
+    }
+    .info-item div strong { display: block; font-weight: 500; color: var(--navy); margin-bottom: 0.15rem; font-size: 0.9rem; }
+    .info-item div span { font-size: 0.88rem; color: var(--muted); }
+
+    form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    label { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); display: block; margin-bottom: 0.4rem; }
+    input, textarea, select {
+      width: 100%; padding: 0.9rem 1.1rem;
+      border: 1px solid rgba(13,32,53,0.18);
+      border-radius: var(--radius);
+      background: var(--white);
+      font-family: 'Jost', sans-serif; font-size: 0.93rem; color: var(--text);
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200,169,110,0.15);
+    }
+    textarea { resize: vertical; min-height: 130px; }
+    .btn-submit {
+      padding: 1rem 2.5rem;
+      background: var(--navy);
+      color: var(--white);
+      border: none; border-radius: var(--radius);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      align-self: flex-start;
+    }
+    .btn-submit:hover { background: var(--navy2); transform: translateY(-2px); }
+    .form-success {
+      display: none;
+      background: rgba(200,169,110,0.15);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      color: var(--navy);
+      font-size: 0.9rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2.5rem 5vw;
+      font-size: 0.82rem;
+    }
+    footer strong { color: var(--gold); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .sobre-grid, .contato-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .cards { grid-template-columns: 1fr; }
+      .sobre-badge { left: 1rem; bottom: -2rem; }
+      nav ul { display: none; }
+    }
+    @media (max-width: 600px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .dep-card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">MDA<span> Consultoria</span></div>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Regiões dos Lagos · Rio de Janeiro</div>
+    <h1 class="hero-title">
+      A Consultoria de<br><em>Recursos Humanos</em><br>das Regiões dos Lagos
+    </h1>
+    <p class="hero-sub">
+      Conectamos talentos às melhores oportunidades e apoiamos empresas a construírem equipes de alta performance — com ética, cuidado e profundo conhecimento da região.
+    </p>
+    <a href="#contato" class="btn">Fale Conosco</a>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-text reveal">
+      <p class="section-label">Sobre Nós</p>
+      <h2 class="section-title">Parceiros no crescimento <em>das pessoas</em> e das empresas</h2>
+      <div class="divider"></div>
+      <p>
+        A MDA Consultoria nasceu da convicção de que o capital humano é o ativo mais valioso de qualquer organização. Atuamos nas Regiões dos Lagos com foco em recrutamento, seleção e desenvolvimento de pessoas, sempre alinhados às necessidades reais do mercado local.
+      </p>
+      <p>
+        Nossa equipe combina expertise técnica em RH com um olhar humano e empático, garantindo que cada processo respeite tanto os objetivos das empresas quanto as aspirações dos profissionais.
+      </p>
+      <p>
+        De Cabo Frio a Búzios, de Arraial do Cabo a São Pedro da Aldeia — estamos onde nossos clientes estão.
+      </p>
+    </div>
+    <div class="sobre-img reveal">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Reunião profissional" />
+      <div class="sobre-badge">
+        <strong>+10</strong>
+        <span>anos de experiência</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="servicos-wrap">
+    <div class="servicos-header reveal">
+      <p class="section-label">O que fazemos</p>
+      <h2 class="section-title">Nossos <em>Serviços</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="card-icon">🎯</div>
+        <h3>Recrutamento & Seleção</h3>
+        <p>Mapeamos o perfil ideal para cada vaga e conduzimos processos seletivos criteriosos, ágeis e alinhados à cultura da sua empresa.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">📋</div>
+        <h3>Gestão de Pessoas</h3>
+        <p>Apoiamos na estruturação de políticas de RH, cargos e salários, avaliação de desempenho e planos de carreira.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🎓</div>
+        <h3>Treinamento & Desenvolvimento</h3>
+        <p>Programas customizados de capacitação para equipes, lideranças e profissionais em transição de carreira.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="dep-header reveal">
+    <p class="section-label">Depoimentos</p>
+    <h2 class="section-title">O que nossos <em>clientes</em> dizem</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="carousel reveal">
+    <div class="slides">
+      <div class="slide active">
+        <div class="dep-card">
+          <div class="stars">★★★★★</div>
+          <p class="dep-quote">A MDA transformou nosso processo de contratação. Em menos de um mês encontramos o gerente que precisávamos — alguém que realmente entende o mercado das Regiões dos Lagos.</p>
+          <div class="dep-author">
+            <strong>Rodrigo Mendes</strong>
+            <span>Diretor · Pousada Vila do Mar, Búzios</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="dep-card">
+          <div class="stars">★★★★★</div>
+          <p class="dep-quote">Profissionalismo e atenção em cada etapa. A Eliane entendeu exatamente o que precisávamos e entregou muito além do esperado. Recomendo sem hesitar.</p>
+          <div class="dep-author">
+            <strong>Patrícia Fonseca</strong>
+            <span>Proprietária · Clínica Saúde Lagos, Cabo Frio</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="dep-card">
+          <div class="stars">★★★★★</div>
+          <p class="dep-quote">Contratamos a MDA para reestruturar nossa área de RH e os resultados foram além das expectativas. Equipe competente, pontual e extremamente dedicada.</p>
+          <div class="dep-author">
+            <strong>Carlos Nogueira</strong>
+            <span>CEO · Grupo Construlago, Arraial do Cabo</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="dep-card">
+          <div class="stars">★★★★★</div>
+          <p class="dep-quote">O treinamento de liderança que o Felipe conduziu foi excelente. Minha equipe saiu motivada e com ferramentas práticas. Vale cada centavo investido.</p>
+          <div class="dep-author">
+            <strong>Renata Barbosa</strong>
+            <span>Gerente Comercial · Supermercado Atlântico, São Pedro da Aldeia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prev">&#8592;</button>
+      <div class="dots">
+        <div class="dot active" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot" data-index="2"></div>
+        <div class="dot" data-index="3"></div>
+      </div>
+      <button class="carousel-btn" id="next">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section id="equipe">
+  <div class="equipe-wrap">
+    <div class="equipe-header reveal">
+      <p class="section-label">Nossa Equipe</p>
+      <h2 class="section-title">As pessoas por <em>trás da MDA</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="team-grid">
+      <div class="member reveal">
+        <div class="avatar">EM</div>
+        <h3>Eliane Maria</h3>
+        <p class="role">Gerente</p>
+        <p>Especialista em Gestão de Pessoas com mais de 15 anos de atuação em empresas da região. Apaixonada por conectar talentos e transformar culturas organizacionais.</p>
+      </div>
+      <div class="member reveal">
+        <div class="avatar">FL</div>
+        <h3>Felipe Lisboa</h3>
+        <p class="role">Assessor</p>
+        <p>Formado em Administração com foco em Desenvolvimento Humano. Atua no suporte aos processos seletivos e na condução de treinamentos corporativos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-wrap">
+    <div class="contato-info reveal">
+      <p class="section-label">Contato</p>
+      <h2 class="section-title">Vamos conversar <em>sobre o seu negócio</em></h2>
+      <div class="divider"></div>
+      <p>Estamos prontos para ouvir suas necessidades e apresentar a melhor solução em Recursos Humanos para a sua empresa. Entre em contato — respondemos em até 24 horas.</p>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <strong>Localização</strong>
+          <span>Regiões dos Lagos, Rio de Janeiro, Brasil</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <div>
+          <strong>E-mail</strong>
+          <span>mdaservicosprofissionais@gmail.com</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📱</div>
+        <div>
+          <strong>WhatsApp</strong>
+          <span>(22) 99253-3228</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <!--
+        INSTRUÇÕES PARA ATIVAR O FORMULÁRIO:
+        1. Acesse https://formspree.io e crie uma conta gratuita
+        2. Crie um novo formulário e copie o endpoint gerado
+        3. Substitua YOUR_FORM_ID abaixo pelo ID do seu formulário
+           Exemplo: action="https://formspree.io/f/xrgjwkqv"
+      -->
+      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <div>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div>
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com.br" required />
+          </div>
+          <div>
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(22) 99999-0000" />
+          </div>
+        </div>
+        <div>
+          <label for="servico">Serviço de Interesse</label>
+          <select id="servico" name="servico">
+            <option value="">Selecione um serviço…</option>
+            <option>Recrutamento & Seleção</option>
+            <option>Gestão de Pessoas</option>
+            <option>Treinamento & Desenvolvimento</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div>
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Conte-nos um pouco sobre suas necessidades…" required></textarea>
+        </div>
+        <div class="form-success" id="form-success">
+          ✅ Mensagem enviada com sucesso! Entraremos em contato em breve.
+        </div>
+        <button type="submit" class="btn-submit">Enviar Mensagem</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>MDA Consultoria</strong> · Recursos Humanos · Regiões dos Lagos, RJ</p>
+  <p style="margin-top:0.5rem; font-size:0.75rem;">Desenvolvido com ♥ para as empresas e profissionais da nossa região</p>
+</footer>
+
+<script>
+  // ── Carousel ──────────────────────────────────────────────────
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.dot');
+  let current  = 0;
+  let autoTimer;
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 5000); }
+  function resetAuto()  { clearInterval(autoTimer); startAuto(); }
+
+  document.getElementById('next').addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+  document.getElementById('prev').addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.index); resetAuto(); }));
+  startAuto();
+
+  // ── Scroll reveal ─────────────────────────────────────────────
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Form submission ────────────────────────────────────────────
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async (e) => {
+    const action = form.getAttribute('action');
+    if (action.includes('YOUR_FORM_ID')) return; // placeholder, let browser handle
+
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(action, {
+        method: 'POST', body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        document.getElementById('form-success').style.display = 'block';
+        setTimeout(() => document.getElementById('form-success').style.display = 'none', 5000);
+      }
+    } catch (err) { console.error(err); }
+  });
+</script>
+</body>
+</html>
