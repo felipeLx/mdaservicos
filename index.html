@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MDA Consultoria | Recursos Humanos – Regiões dos Lagos</title>
+  <title>MDA Consultoria | Recursos Humanos – Rio de Janeiro</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <!-- Cloudflare Turnstile -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +31,7 @@
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -43,234 +42,130 @@
     }
     .logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 0.06em;
+      font-size: 1.6rem; font-weight: 600;
+      color: var(--gold); letter-spacing: 0.06em;
     }
     .logo span { color: var(--white); }
-    nav ul {
-      list-style: none;
-      display: flex; gap: 2rem;
-    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
     nav ul a {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
       transition: color 0.25s;
     }
     nav ul a:hover { color: var(--gold); }
 
-    /* ─── HERO ─── */
+    /* HERO */
     #hero {
       min-height: 100vh;
       background:
         linear-gradient(160deg, rgba(13,32,53,0.88) 0%, rgba(13,32,53,0.60) 60%, rgba(13,32,53,0.85) 100%),
         url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center/cover no-repeat;
       display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 8rem 5vw 5rem;
+      text-align: center; padding: 8rem 5vw 5rem;
     }
     .hero-inner { max-width: 780px; }
     .hero-eyebrow {
       display: inline-block;
       font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(200,169,110,0.5);
-      padding: 0.35rem 1.2rem;
-      border-radius: 50px;
-      margin-bottom: 2rem;
+      color: var(--gold); border: 1px solid rgba(200,169,110,0.5);
+      padding: 0.35rem 1.2rem; border-radius: 50px; margin-bottom: 2rem;
       animation: fadeUp 0.8s both;
     }
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300;
+      color: var(--white); line-height: 1.1; margin-bottom: 1.5rem;
       animation: fadeUp 0.8s 0.15s both;
     }
     .hero-title em { font-style: italic; color: var(--gold2); }
     .hero-sub {
-      font-size: 1rem; line-height: 1.8;
-      color: rgba(255,255,255,0.72);
+      font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.72);
       max-width: 520px; margin: 0 auto 3rem;
       animation: fadeUp 0.8s 0.3s both;
     }
     .btn {
-      display: inline-block;
-      padding: 0.85rem 2.4rem;
-      background: var(--gold);
-      color: var(--navy);
-      text-decoration: none;
-      font-size: 0.82rem; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      border-radius: var(--radius);
-      transition: background 0.25s, transform 0.2s;
+      display: inline-block; padding: 0.85rem 2.4rem;
+      background: var(--gold); color: var(--navy); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      border-radius: var(--radius); transition: background 0.25s, transform 0.2s;
       animation: fadeUp 0.8s 0.45s both;
     }
     .btn:hover { background: var(--gold2); transform: translateY(-2px); }
 
-    /* ─── SECTIONS ─── */
+    /* SECTIONS */
     section { padding: 6rem 5vw; }
     .section-label {
       font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
+      color: var(--gold); margin-bottom: 0.8rem;
     }
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 400; line-height: 1.15;
-      color: var(--navy);
-      margin-bottom: 1.5rem;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.15;
+      color: var(--navy); margin-bottom: 1.5rem;
     }
     .section-title em { font-style: italic; }
-    .divider {
-      width: 48px; height: 2px;
-      background: var(--gold);
-      margin: 1.5rem 0;
-    }
+    .divider { width: 48px; height: 2px; background: var(--gold); margin: 1.5rem 0; }
 
-    /* ─── SOBRE ─── */
+    /* SOBRE */
     #sobre { background: var(--white); }
     .sobre-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center;
-      max-width: 1100px; margin: 0 auto;
+      gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto;
     }
-    .sobre-text p {
-      line-height: 1.9; color: #4a4a4a; font-size: 0.97rem;
-      margin-bottom: 1rem;
-    }
-    .sobre-img {
-      position: relative;
-    }
+    .sobre-text p { line-height: 1.9; color: #4a4a4a; font-size: 0.97rem; margin-bottom: 1rem; }
+    .sobre-img { position: relative; }
     .sobre-img img {
-      width: 100%; border-radius: var(--radius);
-      display: block;
+      width: 100%; border-radius: var(--radius); display: block;
       box-shadow: 20px 20px 0 var(--cream), 22px 22px 0 var(--gold);
     }
     .sobre-badge {
       position: absolute; bottom: -1.5rem; left: -1.5rem;
-      background: var(--navy);
-      color: var(--white);
-      padding: 1.5rem 2rem;
-      border-radius: var(--radius);
-      text-align: center;
+      background: var(--navy); color: var(--white);
+      padding: 1.5rem 2rem; border-radius: var(--radius); text-align: center;
       box-shadow: 0 8px 30px rgba(13,32,53,0.3);
     }
     .sobre-badge strong {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem; font-weight: 600;
-      color: var(--gold);
+      display: block; font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 600; color: var(--gold);
     }
     .sobre-badge span { font-size: 0.75rem; letter-spacing: 0.1em; opacity: 0.8; }
 
-    /* ─── SERVIÇOS ─── */
+    /* SERVICOS */
     #servicos { background: var(--cream); }
     .servicos-wrap { max-width: 1100px; margin: 0 auto; }
     .servicos-header { text-align: center; margin-bottom: 3.5rem; }
     .servicos-header .divider { margin: 1.5rem auto; }
-    .cards {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.8rem;
-    }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
     .card {
-      background: var(--white);
-      border: 1px solid rgba(200,169,110,0.2);
-      border-radius: var(--radius);
-      padding: 2.4rem 2rem;
+      background: var(--white); border: 1px solid rgba(200,169,110,0.2);
+      border-radius: var(--radius); padding: 2.4rem 2rem;
       transition: box-shadow 0.3s, transform 0.3s;
     }
-    .card:hover {
-      box-shadow: 0 16px 48px rgba(13,32,53,0.1);
-      transform: translateY(-4px);
-    }
+    .card:hover { box-shadow: 0 16px 48px rgba(13,32,53,0.1); transform: translateY(-4px); }
     .card-icon {
       width: 48px; height: 48px; border-radius: 50%;
       background: rgba(200,169,110,0.12);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.5rem;
-      font-size: 1.3rem;
+      margin-bottom: 1.5rem; font-size: 1.3rem;
     }
     .card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem; font-weight: 600;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600;
       color: var(--navy); margin-bottom: 0.8rem;
     }
     .card p { font-size: 0.9rem; line-height: 1.75; color: var(--muted); }
 
-    /* ─── DEPOIMENTOS ─── */
-    #depoimentos { background: var(--navy); overflow: hidden; }
-    #depoimentos .section-title,
-    #depoimentos .section-label { color: var(--gold2); }
-    #depoimentos .section-title { color: var(--white); }
-    .dep-header { text-align: center; margin-bottom: 3rem; }
-    .dep-header .divider { margin: 1.5rem auto; }
-    .carousel { position: relative; max-width: 800px; margin: 0 auto; }
-    .slides { overflow: hidden; }
-    .slide {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
-    .slide.active { display: block; }
-    .dep-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(200,169,110,0.2);
-      border-radius: var(--radius);
-      padding: 3rem 3.5rem;
-      text-align: center;
-    }
-    .dep-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem; font-style: italic;
-      color: rgba(255,255,255,0.9); line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-    .dep-quote::before { content: '\201C'; color: var(--gold); font-size: 3rem; line-height: 0; vertical-align: -0.7rem; margin-right: 0.3rem; }
-    .dep-author strong { display: block; color: var(--gold); font-size: 0.95rem; letter-spacing: 0.05em; }
-    .dep-author span { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
-    .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .carousel-controls {
-      display: flex; justify-content: center; align-items: center;
-      gap: 1rem; margin-top: 2rem;
-    }
-    .carousel-btn {
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 1px solid rgba(200,169,110,0.4);
-      background: transparent; color: var(--gold);
-      font-size: 1.1rem; cursor: pointer;
-      transition: background 0.2s, border-color 0.2s;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .carousel-btn:hover { background: rgba(200,169,110,0.15); border-color: var(--gold); }
-    .dots { display: flex; gap: 0.5rem; }
-    .dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(200,169,110,0.3); cursor: pointer;
-      transition: background 0.2s;
-    }
-    .dot.active { background: var(--gold); }
-
-    /* ─── EQUIPE ─── */
+    /* EQUIPE */
     #equipe { background: var(--white); }
     .equipe-wrap { max-width: 1100px; margin: 0 auto; }
     .equipe-header { text-align: center; margin-bottom: 3.5rem; }
     .equipe-header .divider { margin: 1.5rem auto; }
     .team-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem; max-width: 700px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem; max-width: 1000px; margin: 0 auto;
     }
     .member {
-      text-align: center;
-      padding: 2.5rem 2rem;
-      border: 1px solid rgba(200,169,110,0.2);
-      border-radius: var(--radius);
+      text-align: center; padding: 2.5rem 2rem;
+      border: 1px solid rgba(200,169,110,0.2); border-radius: var(--radius);
       transition: box-shadow 0.3s;
     }
     .member:hover { box-shadow: 0 12px 40px rgba(13,32,53,0.1); }
@@ -279,25 +174,19 @@
       margin: 0 auto 1.5rem;
       background: linear-gradient(135deg, var(--navy), var(--navy2));
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 600;
-      color: var(--gold);
-      border: 3px solid var(--gold);
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600;
+      color: var(--gold); border: 3px solid var(--gold);
     }
     .member h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.5rem; color: var(--navy); margin-bottom: 0.3rem;
     }
     .member .role {
-      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold);
+      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
     }
-    .member p {
-      margin-top: 0.8rem;
-      font-size: 0.88rem; line-height: 1.7; color: var(--muted);
-    }
+    .member p { margin-top: 0.8rem; font-size: 0.88rem; line-height: 1.7; color: var(--muted); }
 
-    /* ─── CONTATO ─── */
+    /* CONTATO */
     #contato { background: var(--cream); }
     .contato-wrap {
       max-width: 1100px; margin: 0 auto;
@@ -312,123 +201,92 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 0.9rem; flex-shrink: 0;
     }
-    .info-item div strong { display: block; font-weight: 500; color: var(--navy); margin-bottom: 0.15rem; font-size: 0.9rem; }
+    .info-item div strong {
+      display: block; font-weight: 500; color: var(--navy); margin-bottom: 0.15rem; font-size: 0.9rem;
+    }
     .info-item div span { font-size: 0.88rem; color: var(--muted); }
 
     form { display: flex; flex-direction: column; gap: 1.2rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    label { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); display: block; margin-bottom: 0.4rem; }
+    label {
+      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); display: block; margin-bottom: 0.4rem;
+    }
     input, textarea, select {
       width: 100%; padding: 0.9rem 1.1rem;
-      border: 1px solid rgba(13,32,53,0.18);
-      border-radius: var(--radius);
-      background: var(--white);
-      font-family: 'Jost', sans-serif; font-size: 0.93rem; color: var(--text);
-      outline: none;
-      transition: border-color 0.25s, box-shadow 0.25s;
+      border: 1px solid rgba(13,32,53,0.18); border-radius: var(--radius);
+      background: var(--white); font-family: 'Jost', sans-serif;
+      font-size: 0.93rem; color: var(--text);
+      outline: none; transition: border-color 0.25s, box-shadow 0.25s;
     }
     input:focus, textarea:focus, select:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(200,169,110,0.15);
+      border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,169,110,0.15);
     }
     textarea { resize: vertical; min-height: 130px; }
     .btn-submit {
-      padding: 1rem 2.5rem;
-      background: var(--navy);
-      color: var(--white);
+      padding: 1rem 2.5rem; background: var(--navy); color: var(--white);
       border: none; border-radius: var(--radius);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.14em;
-      text-transform: uppercase; cursor: pointer;
-      transition: background 0.25s, transform 0.2s;
-      align-self: flex-start;
+      font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+      transition: background 0.25s, transform 0.2s; align-self: flex-start;
     }
     .btn-submit:hover { background: var(--navy2); transform: translateY(-2px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
     .form-success {
-      display: none;
-      background: rgba(200,169,110,0.15);
-      border: 1px solid var(--gold);
-      border-radius: var(--radius);
-      padding: 1rem 1.5rem;
-      color: var(--navy);
-      font-size: 0.9rem;
+      display: none; background: rgba(200,169,110,0.15);
+      border: 1px solid var(--gold); border-radius: var(--radius);
+      padding: 1rem 1.5rem; color: var(--navy); font-size: 0.9rem;
     }
     .form-error {
-      display: none;
-      background: rgba(220,53,53,0.08);
-      border: 1px solid rgba(220,53,53,0.4);
-      border-radius: var(--radius);
-      padding: 1rem 1.5rem;
-      color: #8b1a1a;
-      font-size: 0.9rem;
+      display: none; background: rgba(220,53,53,0.08);
+      border: 1px solid rgba(220,53,53,0.4); border-radius: var(--radius);
+      padding: 1rem 1.5rem; color: #8b1a1a; font-size: 0.9rem;
     }
-    .turnstile-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
+    .turnstile-wrap { display: flex; flex-direction: column; gap: 0.4rem; }
     .turnstile-wrap label {
-      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--navy);
+      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy);
     }
 
-    /* ─── WHATSAPP FLOAT ─── */
+    /* WHATSAPP FLOAT */
     .wa-float {
       position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 200;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25d366;
+      width: 56px; height: 56px; border-radius: 50%; background: #25d366;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
-      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5); text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .wa-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 28px rgba(37,211,102,0.6);
-    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
     .wa-float svg { width: 30px; height: 30px; fill: #fff; }
 
-    /* ─── FOOTER ─── */
+    /* FOOTER */
     footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 2.5rem 5vw;
-      font-size: 0.82rem;
+      background: var(--navy); color: rgba(255,255,255,0.5);
+      text-align: center; padding: 2.5rem 5vw; font-size: 0.82rem;
     }
     footer strong { color: var(--gold); }
 
-    /* ─── ANIMATIONS ─── */
+    /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 0; transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── RESPONSIVE ─── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .sobre-grid, .contato-wrap { grid-template-columns: 1fr; gap: 3rem; }
       .cards { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
       .sobre-badge { left: 1rem; bottom: -2rem; }
       nav ul { display: none; }
     }
     @media (max-width: 600px) {
       .team-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
-      .dep-card { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -439,8 +297,7 @@
   <div class="logo">MDA<span> Consultoria</span></div>
   <ul>
     <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#servicos">Serviços</a></li>
-    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#servicos">Servicos</a></li>
     <li><a href="#equipe">Equipe</a></li>
     <li><a href="#contato">Contato</a></li>
   </ul>
@@ -449,12 +306,12 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Regiões dos Lagos · Rio de Janeiro</div>
+    <div class="hero-eyebrow">Consultoria de Recursos Humanos · Rio de Janeiro</div>
     <h1 class="hero-title">
-      A Consultoria de<br><em>Recursos Humanos</em><br>das Regiões dos Lagos
+      Sua empresa com as<br><em>pessoas certas,</em><br>no lugar certo
     </h1>
     <p class="hero-sub">
-      Conectamos talentos às melhores oportunidades e apoiamos empresas a construírem equipes de alta performance — com ética, cuidado e profundo conhecimento da região.
+      A MDA Consultoria apoia empresas de todo o Estado do Rio de Janeiro a recrutar, desenvolver e reter talentos — com etica, metodo e comprometimento com resultados reais.
     </p>
     <a href="#contato" class="btn">Fale Conosco</a>
   </div>
@@ -464,116 +321,47 @@
 <section id="sobre">
   <div class="sobre-grid">
     <div class="sobre-text reveal">
-      <p class="section-label">Sobre Nós</p>
+      <p class="section-label">Sobre Nos</p>
       <h2 class="section-title">Parceiros no crescimento <em>das pessoas</em> e das empresas</h2>
       <div class="divider"></div>
-      <p>
-        A MDA Consultoria nasceu da convicção de que o capital humano é o ativo mais valioso de qualquer organização. Atuamos nas Regiões dos Lagos com foco em recrutamento, seleção e desenvolvimento de pessoas, sempre alinhados às necessidades reais do mercado local.
-      </p>
-      <p>
-        Nossa equipe combina expertise técnica em RH com um olhar humano e empático, garantindo que cada processo respeite tanto os objetivos das empresas quanto as aspirações dos profissionais.
-      </p>
-      <p>
-        De Cabo Frio a Búzios, de Arraial do Cabo a São Pedro da Aldeia — estamos onde nossos clientes estão.
-      </p>
+      <p>A MDA Consultoria nasceu da conviccao de que o capital humano e o ativo mais valioso de qualquer organizacao. Atuamos em todo o Estado do Rio de Janeiro com foco em recrutamento, selecao e desenvolvimento de pessoas, sempre alinhados as necessidades reais de cada empresa e setor.</p>
+      <p>Nossa equipe combina expertise tecnica em RH com um olhar humano e empatico, garantindo que cada processo respeite tanto os objetivos estrategicos das empresas quanto as aspiracoes dos profissionais.</p>
+      <p>Da capital ao interior, do litoral a Serra — estamos presentes onde nossos clientes precisam de nos.</p>
     </div>
     <div class="sobre-img reveal">
-      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Reunião profissional" />
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Reuniao profissional" />
       <div class="sobre-badge">
         <strong>+10</strong>
-        <span>anos de experiência</span>
+        <span>anos de experiencia</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVIÇOS -->
+<!-- SERVICOS -->
 <section id="servicos">
   <div class="servicos-wrap">
     <div class="servicos-header reveal">
       <p class="section-label">O que fazemos</p>
-      <h2 class="section-title">Nossos <em>Serviços</em></h2>
+      <h2 class="section-title">Nossos <em>Servicos</em></h2>
       <div class="divider"></div>
     </div>
     <div class="cards">
       <div class="card reveal">
-        <div class="card-icon">🎯</div>
-        <h3>Recrutamento & Seleção</h3>
-        <p>Mapeamos o perfil ideal para cada vaga e conduzimos processos seletivos criteriosos, ágeis e alinhados à cultura da sua empresa.</p>
+        <div class="card-icon">&#127919;</div>
+        <h3>Recrutamento e Selecao</h3>
+        <p>Mapeamos o perfil ideal para cada vaga e conduzimos processos seletivos criteriosos, ageis e alinhados a cultura da sua empresa.</p>
       </div>
       <div class="card reveal">
-        <div class="card-icon">📋</div>
-        <h3>Gestão de Pessoas</h3>
-        <p>Apoiamos na estruturação de políticas de RH, cargos e salários, avaliação de desempenho e planos de carreira.</p>
+        <div class="card-icon">&#128203;</div>
+        <h3>Gestao de Pessoas</h3>
+        <p>Apoiamos na estruturacao de politicas de RH, cargos e salarios, avaliacao de desempenho e planos de carreira.</p>
       </div>
       <div class="card reveal">
-        <div class="card-icon">🎓</div>
-        <h3>Treinamento & Desenvolvimento</h3>
-        <p>Programas customizados de capacitação para equipes, lideranças e profissionais em transição de carreira.</p>
+        <div class="card-icon">&#127891;</div>
+        <h3>Treinamento e Desenvolvimento</h3>
+        <p>Programas customizados de capacitacao para equipes, liderancas e profissionais em transicao de carreira.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section id="depoimentos">
-  <div class="dep-header reveal">
-    <p class="section-label">Depoimentos</p>
-    <h2 class="section-title">O que nossos <em>clientes</em> dizem</h2>
-    <div class="divider"></div>
-  </div>
-  <div class="carousel reveal">
-    <div class="slides">
-      <div class="slide active">
-        <div class="dep-card">
-          <div class="stars">★★★★★</div>
-          <p class="dep-quote">A MDA transformou nosso processo de contratação. Em menos de um mês encontramos o gerente que precisávamos — alguém que realmente entende o mercado das Regiões dos Lagos.</p>
-          <div class="dep-author">
-            <strong>Rodrigo Mendes</strong>
-            <span>Diretor · Pousada Vila do Mar, Búzios</span>
-          </div>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="dep-card">
-          <div class="stars">★★★★★</div>
-          <p class="dep-quote">Profissionalismo e atenção em cada etapa. A Eliane entendeu exatamente o que precisávamos e entregou muito além do esperado. Recomendo sem hesitar.</p>
-          <div class="dep-author">
-            <strong>Patrícia Fonseca</strong>
-            <span>Proprietária · Clínica Saúde Lagos, Cabo Frio</span>
-          </div>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="dep-card">
-          <div class="stars">★★★★★</div>
-          <p class="dep-quote">Contratamos a MDA para reestruturar nossa área de RH e os resultados foram além das expectativas. Equipe competente, pontual e extremamente dedicada.</p>
-          <div class="dep-author">
-            <strong>Carlos Nogueira</strong>
-            <span>CEO · Grupo Construlago, Arraial do Cabo</span>
-          </div>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="dep-card">
-          <div class="stars">★★★★★</div>
-          <p class="dep-quote">O treinamento de liderança que o Felipe conduziu foi excelente. Minha equipe saiu motivada e com ferramentas práticas. Vale cada centavo investido.</p>
-          <div class="dep-author">
-            <strong>Renata Barbosa</strong>
-            <span>Gerente Comercial · Supermercado Atlântico, São Pedro da Aldeia</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-controls">
-      <button class="carousel-btn" id="prev">&#8592;</button>
-      <div class="dots">
-        <div class="dot active" data-index="0"></div>
-        <div class="dot" data-index="1"></div>
-        <div class="dot" data-index="2"></div>
-        <div class="dot" data-index="3"></div>
-      </div>
-      <button class="carousel-btn" id="next">&#8594;</button>
     </div>
   </div>
 </section>
@@ -583,7 +371,7 @@
   <div class="equipe-wrap">
     <div class="equipe-header reveal">
       <p class="section-label">Nossa Equipe</p>
-      <h2 class="section-title">As pessoas por <em>trás da MDA</em></h2>
+      <h2 class="section-title">As pessoas por <em>tras da MDA</em></h2>
       <div class="divider"></div>
     </div>
     <div class="team-grid">
@@ -591,13 +379,19 @@
         <div class="avatar">EM</div>
         <h3>Eliane Maria</h3>
         <p class="role">Gerente</p>
-        <p>Especialista em Gestão de Pessoas com mais de 15 anos de atuação em empresas da região. Apaixonada por conectar talentos e transformar culturas organizacionais.</p>
+        <p>Especialista em Gestao de Pessoas com ampla experiencia em empresas de diferentes setores no Estado do Rio de Janeiro. Lidera a MDA com foco em resultados e relacoes humanas de qualidade.</p>
       </div>
       <div class="member reveal">
         <div class="avatar">FL</div>
         <h3>Felipe Lisboa</h3>
         <p class="role">Assessor</p>
-        <p>Formado em Administração com foco em Desenvolvimento Humano. Atua no suporte aos processos seletivos e na condução de treinamentos corporativos.</p>
+        <p>Formado em Administracao com foco em Desenvolvimento Humano. Atua no suporte aos processos seletivos e na conducao de treinamentos e programas de capacitacao corporativa.</p>
+      </div>
+      <div class="member reveal">
+        <div class="avatar">AB</div>
+        <h3>Ana Beatriz Lima</h3>
+        <p class="role">Advogada</p>
+        <p>Especialista em Direito do Trabalho e relacoes trabalhistas. Garante seguranca juridica em todos os processos da consultoria, desde contratos ate compliance em RH.</p>
       </div>
     </div>
   </div>
@@ -608,25 +402,25 @@
   <div class="contato-wrap">
     <div class="contato-info reveal">
       <p class="section-label">Contato</p>
-      <h2 class="section-title">Vamos conversar <em>sobre o seu negócio</em></h2>
+      <h2 class="section-title">Vamos conversar <em>sobre o seu negocio</em></h2>
       <div class="divider"></div>
-      <p>Estamos prontos para ouvir suas necessidades e apresentar a melhor solução em Recursos Humanos para a sua empresa. Entre em contato — respondemos em até 24 horas.</p>
+      <p>Estamos prontos para ouvir suas necessidades e apresentar a melhor solucao em Recursos Humanos para a sua empresa. Entre em contato — respondemos em ate 24 horas.</p>
       <div class="info-item">
-        <div class="info-icon">📍</div>
+        <div class="info-icon">&#128205;</div>
         <div>
-          <strong>Localização</strong>
-          <span>Regiões dos Lagos, Rio de Janeiro, Brasil</span>
+          <strong>Localizacao</strong>
+          <span>Estado do Rio de Janeiro, Brasil</span>
         </div>
       </div>
       <div class="info-item">
-        <div class="info-icon">📧</div>
+        <div class="info-icon">&#128231;</div>
         <div>
           <strong>E-mail</strong>
           <span>mdaservicosprofissionais@gmail.com</span>
         </div>
       </div>
       <div class="info-item">
-        <div class="info-icon">📱</div>
+        <div class="info-icon">&#128241;</div>
         <div>
           <strong>WhatsApp</strong>
           <span>(22) 99253-3228</span>
@@ -636,19 +430,17 @@
 
     <div class="reveal">
       <!--
-        INSTRUÇÕES PARA ATIVAR O FORMULÁRIO (GRÁTIS):
-        1. Acesse https://web3forms.com
-        2. Digite seu e-mail e clique em "Get your Access Key" — sem cadastro, sem cartão
-        3. Você receberá a chave no e-mail. Cole ela abaixo substituindo YOUR_ACCESS_KEY
+        COMO ATIVAR O FORMULARIO:
+        1. Web3Forms: acesse web3forms.com, coloque seu e-mail, receba a chave
+           e substitua YOUR_ACCESS_KEY abaixo.
+        2. Turnstile: Cloudflare Dashboard > Turnstile > seu site
+           e substitua YOUR_TURNSTILE_SITE_KEY abaixo.
       -->
       <form id="contact-form">
-        <!-- Web3Forms: chave de acesso (obrigatório) -->
-        <input type="hidden" name="access_key" value="4f5a8676-c65c-43ef-9d6f-2fd0a4c6d5e7" />
-        <!-- Honeypot anti-spam (não remova) -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+        <input type="hidden" name="subject"    value="Novo contato via site MDA Consultoria" />
+        <input type="hidden" name="from_name"  value="MDA Consultoria Website" />
         <input type="checkbox" name="botcheck" style="display:none;" />
-        <!-- Assunto do e-mail que você vai receber -->
-        <input type="hidden" name="subject" value="Novo contato via site MDA Consultoria" />
-        <input type="hidden" name="from_name" value="MDA Consultoria Website" />
 
         <div class="form-row">
           <div>
@@ -660,6 +452,7 @@
             <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" />
           </div>
         </div>
+
         <div class="form-row">
           <div>
             <label for="email">E-mail</label>
@@ -670,36 +463,38 @@
             <input type="tel" id="telefone" name="telefone" placeholder="(22) 99253-3228" />
           </div>
         </div>
+
         <div>
-          <label for="servico">Serviço de Interesse</label>
+          <label for="servico">Servico de Interesse</label>
           <select id="servico" name="servico">
-            <option value="">Selecione um serviço…</option>
-            <option>Recrutamento & Seleção</option>
-            <option>Gestão de Pessoas</option>
-            <option>Treinamento & Desenvolvimento</option>
+            <option value="">Selecione um servico...</option>
+            <option>Recrutamento e Selecao</option>
+            <option>Gestao de Pessoas</option>
+            <option>Treinamento e Desenvolvimento</option>
+            <option>Assessoria Juridica Trabalhista</option>
             <option>Outro</option>
           </select>
         </div>
+
         <div>
           <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" placeholder="Conte-nos um pouco sobre suas necessidades…" required></textarea>
+          <textarea id="mensagem" name="mensagem" placeholder="Conte-nos um pouco sobre suas necessidades..." required></textarea>
         </div>
+
         <div class="turnstile-wrap">
-          <label>Verificação de segurança</label>
-          <!--
-            Substitua YOUR_TURNSTILE_SITE_KEY pela Site Key gerada no
-            Cloudflare Dashboard → Turnstile → seu site
-          -->
+          <label>Verificacao de seguranca</label>
           <div class="cf-turnstile"
-               data-sitekey="0x4AAAAAACiXmWVGM4EWvmkX"
+               data-sitekey="YOUR_TURNSTILE_SITE_KEY"
                data-theme="light"
                data-language="pt-br">
           </div>
         </div>
+
         <div class="form-success" id="form-success">
-          ✅ Mensagem enviada com sucesso! Entraremos em contato em breve.
+          Mensagem enviada com sucesso! Entraremos em contato em breve.
         </div>
         <div class="form-error" id="form-error"></div>
+
         <button type="submit" class="btn-submit">Enviar Mensagem</button>
       </form>
     </div>
@@ -708,7 +503,7 @@
 
 <!-- WHATSAPP FLOAT -->
 <a class="wa-float"
-   href="https://wa.me/5522992533228?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20MDA%20Consultoria."
+   href="https://wa.me/5522992533228?text=Ola%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20servicos%20da%20MDA%20Consultoria."
    target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -717,100 +512,88 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 <strong>MDA Consultoria</strong> · Recursos Humanos · Regiões dos Lagos, RJ</p>
-  <p style="margin-top:0.5rem; font-size:0.75rem;">Desenvolvido com ♥ para as empresas e profissionais da nossa região</p>
+  <p>2025 <strong>MDA Consultoria</strong> - Recursos Humanos - Rio de Janeiro, RJ</p>
+  <p style="margin-top:0.5rem; font-size:0.75rem;">Desenvolvendo pessoas e empresas em todo o Estado do Rio de Janeiro</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── Carousel ──────────────────────────────────────────────────
-  const slides = document.querySelectorAll('.slide');
-  const dots   = document.querySelectorAll('.dot');
-  let current  = 0;
-  let autoTimer;
-
-  function goTo(n) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
-
-  function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 5000); }
-  function resetAuto()  { clearInterval(autoTimer); startAuto(); }
-
-  document.getElementById('next').addEventListener('click', () => { goTo(current + 1); resetAuto(); });
-  document.getElementById('prev').addEventListener('click', () => { goTo(current - 1); resetAuto(); });
-  dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.index); resetAuto(); }));
-  startAuto();
-
-  // ── Scroll reveal ─────────────────────────────────────────────
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // ── Form submission via Web3Forms + Cloudflare Turnstile ──────
-  const form      = document.getElementById('contact-form');
-  const success   = document.getElementById('form-success');
-  const errorEl   = document.getElementById('form-error');
-  const submitBtn = form.querySelector('.btn-submit');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Verifica chave Web3Forms
-    const key = form.querySelector('[name="access_key"]').value;
-    if (key === 'YOUR_ACCESS_KEY') {
-      showError('⚠ Configure sua chave Web3Forms antes de enviar.');
-      return;
-    }
-
-    // Verifica Turnstile
-    const turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
-    if (!turnstileInput || !turnstileInput.value) {
-      showError('⚠ Por favor, complete a verificação de segurança antes de enviar.');
-      return;
-    }
-
-    submitBtn.disabled    = true;
-    submitBtn.textContent = 'Enviando…';
-    success.style.display = 'none';
-    errorEl.style.display = 'none';
-
-    const data = new FormData(form);
-    const json = Object.fromEntries(data.entries());
-
-    try {
-      const res  = await fetch('https://api.web3forms.com/submit', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body:    JSON.stringify(json)
-      });
-      const body = await res.json();
-
-      if (res.ok && body.success) {
-        form.reset();
-        // Reseta o Turnstile após envio bem-sucedido
-        if (window.turnstile) window.turnstile.reset();
-        success.style.display = 'block';
-        setTimeout(() => success.style.display = 'none', 6000);
-      } else {
-        showError(body.message || 'Erro ao enviar. Tente novamente.');
+<script>
+  // Scroll reveal
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
-    } catch {
-      showError('Falha de conexão. Verifique sua internet e tente novamente.');
-    } finally {
-      submitBtn.disabled    = false;
-      submitBtn.textContent = 'Enviar Mensagem';
-    }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
   });
+
+  // Formulario
+  var form      = document.getElementById('contact-form');
+  var success   = document.getElementById('form-success');
+  var errorEl   = document.getElementById('form-error');
+  var submitBtn = form.querySelector('.btn-submit');
 
   function showError(msg) {
     errorEl.textContent   = msg;
     errorEl.style.display = 'block';
     errorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var key = form.querySelector('[name="access_key"]').value;
+    if (key === 'YOUR_ACCESS_KEY') {
+      showError('Configure sua chave Web3Forms antes de enviar.');
+      return;
+    }
+
+    var turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+    if (!turnstileInput || !turnstileInput.value) {
+      showError('Por favor, complete a verificacao de seguranca antes de enviar.');
+      return;
+    }
+
+    submitBtn.disabled    = true;
+    submitBtn.textContent = 'Enviando...';
+    success.style.display = 'none';
+    errorEl.style.display = 'none';
+
+    var json = {};
+    var data = new FormData(form);
+    data.forEach(function(val, k) { json[k] = val; });
+
+    fetch('https://api.web3forms.com/submit', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body:    JSON.stringify(json)
+    })
+    .then(function(res) {
+      return res.json().then(function(body) {
+        return { ok: res.ok, body: body };
+      });
+    })
+    .then(function(result) {
+      if (result.ok && result.body.success) {
+        form.reset();
+        if (window.turnstile) { window.turnstile.reset(); }
+        success.style.display = 'block';
+        setTimeout(function() { success.style.display = 'none'; }, 6000);
+      } else {
+        showError(result.body.message || 'Erro ao enviar. Tente novamente.');
+      }
+    })
+    .catch(function() {
+      showError('Falha de conexao. Verifique sua internet e tente novamente.');
+    })
+    .finally(function() {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = 'Enviar Mensagem';
+    });
+  });
 </script>
 </body>
 </html>
